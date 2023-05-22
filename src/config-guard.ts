@@ -6,6 +6,7 @@ import { z } from "zod";
 export const configGuard = z.object({
   appid: z.string(),
   secret: z.string(),
+  mode: z.enum(["openid", "unionid"]).default("openid"),
 });
 
 export type Config = z.infer<typeof configGuard>;

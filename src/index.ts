@@ -56,7 +56,7 @@ const createGetUserInfo =
     }
 
     const { code } = result.data;
-    const { appid, secret } = (await getConfig(metadata.id)) as Config;
+    const { appid, secret, mode } = (await getConfig(metadata.id)) as Config;
     const url = `${codeToSessionEndpoint}?appid=${appid}&secret=${secret}&js_code=${code}&grant_type=authorization_code`;
 
     const res = await fetch(url, { method: "GET" }).then((res) => res.json());
@@ -69,14 +69,13 @@ const createGetUserInfo =
       );
     }
 
-    if ("openid" in parsed) {
-      return { id: parsed.openid };
+    const { openid, unionid } = parsed as { openid: string; unionid: string };
+    switch (mode) {
+      case "openid":
+        return { id: openid };
+      case "unionid":
+        return { id: unionid };
     }
-
-    throw new ConnectorError(
-      ConnectorErrorCodes.SocialIdTokenInvalid,
-      "openid not found"
-    );
   };
 
 /**

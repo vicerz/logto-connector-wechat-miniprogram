@@ -34,5 +34,21 @@ export const metadata: ConnectorMetadata = {
       placeholder: "WeChat mini program app secret",
       required: true,
     },
+    {
+      key: "mode",
+      label: "Identifier Mode",
+      type: ConnectorConfigFormItemType.Select,
+      selectItems: [
+        {
+          title: "Open ID",
+          value: "openid",
+        },
+        {
+          title: "Union ID",
+          value: "unionid",
+        },
+      ],
+      defaultValue: "openid",
+    },
   ],
 };
