@@ -1,8 +1,8 @@
 FROM svhd/logto:latest
 COPY . /etc/logto/packages/connector/connector-wechat-miniprogram/
 RUN npm add --location=global pnpm@^8.5.0
+RUN pnpm i
 RUN pnpm -r update
-RUN pnpm i 
 RUN pnpm pnpm:devPreinstall
 RUN pnpm connectors:build && pnpm cli connector link
 WORKDIR /etc/logto
