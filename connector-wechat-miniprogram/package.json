@@ -1,0 +1,10 @@
+{
+  "name": "connector-wechat-miniprogram",
+  "version": "0.0.0",
+  "description": "WeChat Mini program connector",
+  "scripts": {},
+  "dependencies": {
+    "@logto/connector-kit": "^1.1.1",
+    "zod": "^3.21.4"
+  }
+}
