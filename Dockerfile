@@ -1,6 +1,7 @@
 FROM svhd/logto:latest
 COPY . /etc/logto/packages/connector/connector-wechat-miniprogram/
 RUN npm add --location=global pnpm@^8.5.0
+RUN node .scripts/update-parcelrc.js
 RUN pnpm i
 RUN pnpm -r update
 RUN pnpm pnpm:devPreinstall
