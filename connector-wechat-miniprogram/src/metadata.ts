@@ -2,7 +2,7 @@ import {
   ConnectorConfigFormItemType,
   ConnectorMetadata,
   ConnectorPlatform,
-} from "@logto/connector-kit/lib/types";
+} from "@logto/connector-kit";
 
 export const metadata: ConnectorMetadata = {
   id: "wechat-miniprogram",
